@@ -11,6 +11,8 @@ frontend: # NEXT
     platform_settings:
       min_scale: 1
   workspace:
+    PAGINATION
     VARENV: 12
   environment:
+    PAGINATION
     VARENV: 13
