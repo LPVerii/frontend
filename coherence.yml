@@ -1,0 +1,12 @@
+frontend: # NEXT
+  repo_path: FrontEnd
+  type: backend
+  url_path: /
+  local_packages: ["node_modules"]
+  dev: ["npm","install", "&&", "npm", "run", "dev"] # your command list here (customize for packages)
+  prod: ["npm","install", "&&", "npm", "run", "build", "&&", "npm", "run", "start"] # runs in deployed env.
+  system:
+    cpu: 2
+    memory: "8G"
+    platform_settings:
+      min_scale: 1

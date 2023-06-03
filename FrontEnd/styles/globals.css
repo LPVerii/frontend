@@ -1,0 +1,334 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+canvas {
+  will-change: transform;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../resource/Raleway/static/Raleway-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../resource/Lato/Lato-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-bold';
+    src: url('../resource/Lato/Lato-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Raleway-bold';
+    src: url('../resource/Raleway/static/Raleway-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../resource/Roboto/Roboto-Regular.ttf');
+}
+
+#icon_email {
+    background-image: url('../resource/IMG/email.png');
+    background-repeat: no-repeat;
+    background-position: 0px 10px;
+    background-size: 26px 21px;
+}
+
+#icon_password {
+    background-image: url('../resource/IMG/Password.png');
+    background-repeat: no-repeat;
+    background-position: 0px 7px;
+    background-size: 27px 26px;
+}
+
+#icon_menu {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/149/149441.png');
+    background-repeat: no-repeat;
+    background-position: 0px 13px;
+    background-size: 16px 16px;
+    filter: brightness(0) invert(1);
+}
+
+#icon_mag {
+    background-image: url('../resource/IMG/mag.png');
+    background-repeat: no-repeat;
+    background-position: 260px 7px;
+    background-size: 18px 20px;
+}
+
+#icon_mag::placeholder {
+    color: #79AACB;
+    opacity: 1;
+}
+
+#chkbx {
+    display: none;
+}
+
+#chkbx+label:before {
+    content: "";
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #000;
+    height: 16px;
+    width: 16px;
+    border-radius: 16%;
+    margin-top: 4px;
+}
+
+#chkbx:checked+label:before {
+    display: inline-block;
+    content: "";
+    background-color: #2FA4E7;
+    border: 1px solid #2FA4E7;
+    height: 16px;
+    width: 16px;
+    border-radius: 16%;
+    margin-top: 4px;
+}
+
+.grid-rows-3-custom {
+    grid-template-rows: auto 1fr auto;
+
+}
+
+.shadow-custom {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.1);
+}
+
+.Raleway-regular {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+
+.Raleway-bold {
+    font-family: 'Raleway-bold', sans-serif;
+    font-weight: 700;
+}
+
+.Lato-regular {
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+}
+
+.Lato-extra {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+.Lato-bold {
+    font-family: 'Lato-bold', sans-serif;
+    font-weight: 700;
+}
+
+.Lato-bold-extra {
+    font-family: 'Lato-bold', sans-serif;
+    font-weight: 300;
+}
+
+.Roboto {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.custom-shadow {
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.25);
+}
+
+.bg-minus-20 {
+    background-position: -20px 0;
+}
+
+.icon_name_second {
+    background: url('../resource/IMG/hide-show-password.png');
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+}
+
+.icon_name_second_open {
+    background: url('../resource/IMG/show-hide-password.png');
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+}
+
+.icon_alert {
+    background: url('../resource/IMG/A.png');
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    background-position: 30px 22px;
+}
+
+.icon_warrning {
+    background: url('../resource/IMG/W.png');
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    background-position: 30px 22px;
+}
+
+.icon_checkout {
+    background: url('../resource/IMG/W.png');
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    background-position: 30px 22px;
+    filter: hue-rotate(120deg);
+}
+
+
+.main {
+    position: relative;
+}
+
+
+
+.fadeIn {
+    transition: all 4.8s;
+    animation: fadeIn 1.5s;
+    -webkit-animation: fadeIn 1.5s;
+    -moz-animation: fadeIn 1.5s;
+    -o-animation: fadeIn 1.5s;
+    -ms-animation: fadeIn 1.5s;
+}
+
+
+.fadeOut {
+    transition: all 0.8s;
+    animation: fadeOut 1.5s;
+    -webkit-animation: fadeOut 1.5s;
+    -moz-animation: fadeOut 1.5s;
+    -o-animation: fadeOut 1.5s;
+    -ms-animation: fadeOut 1.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@-o-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.item-enter {
+    opacity: 0;
+}
+
+.item-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.item-exit {
+    opacity: 1;
+}
+
+.item-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}
+
+
