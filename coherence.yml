@@ -11,6 +11,6 @@ frontend: # NEXT
     platform_settings:
       min_scale: 1
   workspace:
-    VARENV
+    VARENV: 12
   environment:
-    VARENV
+    VARENV: 13
