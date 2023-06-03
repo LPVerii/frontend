@@ -10,13 +10,14 @@ frontend: # NEXT
     memory: "8G"
     platform_settings:
       min_scale: 1
-  environment:
-    PAGINATION = 4000
-    BACKEND_URL = wss://prototype-backend-first-run-cd08ac-mrkhiqty7a-ue.a.run.app
-    APP_ID = 1:1000806841107:web:67b0645572ecb23b21b8e6
-    MESSAGING_SENDER_ID = 1000806841107
-    STORAGE_BUCKET = badger-325903.appspot.com
-    PROJECT_ID = badger-325903
-    AUTH_DOMAIN = badger-325903.firebaseapp.com
-    API_KEY = AIzaSyDtBVDT8wEuE55SLi3rJ0
-
+workspace:
+  WORKSPACE
+environment:
+  PAGINATION = 4000
+  BACKEND_URL = wss://prototype-backend-first-run-cd08ac-mrkhiqty7a-ue.a.run.app
+  APP_ID = 1:1000806841107:web:67b0645572ecb23b21b8e6
+  MESSAGING_SENDER_ID = 1000806841107
+  STORAGE_BUCKET = badger-325903.appspot.com
+  PROJECT_ID = badger-325903
+  AUTH_DOMAIN = badger-325903.firebaseapp.com
+  API_KEY = AIzaSyDtBVDT8wEuE55SLi3rJ0
