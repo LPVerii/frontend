@@ -10,7 +10,7 @@ frontend: # NEXT
     memory: "8G"
     platform_settings:
       min_scale: 1
-  workspace:
+  environment:
     PAGINATION = 4000
     BACKEND_URL = wss://prototype-backend-first-run-cd08ac-mrkhiqty7a-ue.a.run.app
     APP_ID = 1:1000806841107:web:67b0645572ecb23b21b8e6
