@@ -11,7 +11,7 @@ frontend: # NEXT
     platform_settings:
       min_scale: 1
 workspace:
-  WORKSPACE
+  WORKSPAC
 environment:
   PAGINATION = 4000
   BACKEND_URL = wss://prototype-backend-first-run-cd08ac-mrkhiqty7a-ue.a.run.app
