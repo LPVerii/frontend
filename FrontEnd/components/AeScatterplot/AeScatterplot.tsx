@@ -66,11 +66,6 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
             const inAnomalyArea = anomalies.some(anomaly => anomaly[0] === point[0] && anomaly[1] === point[1]);
             return inAnomalyArea ? 'rgb(255, 0, 0)' : params.color;
           },
-          emphasis: {
-            color: (params: any) => {
-              return params.data[2];
-            },
-          },
         },
         markArea: {
           z: 2,
@@ -102,11 +97,6 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
           const point = params.data;
           const inAnomalyArea = anomalies.some((anomaly: any[]) => anomaly[0] === point[0] && anomaly[1] === point[1]);
           return inAnomalyArea ? 'rgb(255, 0, 0)' : params.color;
-        },
-        emphasis: {
-          color: (params: any) => {
-            return params.data[2];
-          },
         },
       },
       markArea: {
