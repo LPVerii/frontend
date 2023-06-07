@@ -150,7 +150,7 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
       : shareOptions.map((d: any) => (Array.isArray(d?.label) ? d?.label?.[0] : d?.label));
 
       if (clickable === true && markAreaData.length > 0) {
-        ref.on('click', function (params: any) {
+        ref.on('dblclick', function (params: any) {
           if (params.componentType === 'markArea' || params.componentType === 'series' && params.data[2] === 'rgb(255, 0, 0)') {
             console.log('Mark area clicked:', params);
             shareModalState(true);
