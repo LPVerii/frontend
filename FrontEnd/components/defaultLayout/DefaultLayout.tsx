@@ -31,11 +31,11 @@ let counter = 0;
 wsclient = new websocket.w3cwebsocket(backend_Url);
 
 wsclient.onopen = () => {
-        console.log('WebSocket Client Connected');
+    console.log('WebSocket Client Connected');
 };
 
 wsclient.onerror = () => {
-        console.log('Connection Error');
+    console.log('Connection Error');
 };
 
 
@@ -129,21 +129,21 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
         wsclient.send('{"request":"data", "table":"' + table + '", "columns":[' + `"` + val + `"` + '], "start_timestamp" :' + '"' + startTimestamp + '"' + ', ' + '"end_timestamp":' + '"' + stopTimestamp + '"}');
 
     }
-    
-    function fillTheRow(){
+
+    function fillTheRow() {
         console.log(counter);
-        if (wsclient.readyState === Open && !!user && counter <2) 
-        setTimeout(() => {
-            wsclient.send('{"request":"anomalies"}');
-            counter++;
-        }, 1500);
-        
+        if (wsclient.readyState === Open && !!user && counter < 2)
+            setTimeout(() => {
+                wsclient.send('{"request":"anomalies"}');
+                counter++;
+            }, 1500);
+
     }
 
-   
+
     useEffect(() => {
 
-        
+
         fillTheRow()
 
         wsclient.onmessage = function (e: any) {
@@ -265,9 +265,19 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
         editTagAnomalyType(tag2);
     }
 
-    const handleSelectChange = (Options: any) => {
+    const handleSelectChange = (Options: any, actions: any) => {
         scatterPlotSeverityChart = false;
-        setSelectedOptions(Options);
+        if (actions.action === 'remove-value') {
+            const removedValue = actions.removedValue;
+            const lastSelectedOption = selectedOptions[selectedOptions.length - 1];
+
+            if (removedValue === lastSelectedOption) {
+                setSelectedOptions(Options);
+            }
+        } else {
+            setSelectedOptions(Options);
+        }
+
         const selectedOptionValues = Options.map((option: any) => `"${option.value}"`).join(', ') as any;
 
         if (!selectedOptionValues) { setPoints([]); return; }
@@ -359,7 +369,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                     />
                 </div>
             }
-            <div>&nbsp;</div>
+                <div>&nbsp;</div>
             </p>
             <div></div>
             <div className="grid grid-rows-1 grid-cols-1">
@@ -536,11 +546,11 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                                 <div></div>
                             </div>
                             <div className="w-[98%] xl:w-[100%] h-[80px] m-10  pr-4">
-                            {spinnerLoad === true ? null:<NotificationTab
-                                        sharedData={sharedData}
-                                        dataTab={anomalies}
-                                    />
-                            }
+                                {spinnerLoad === true ? null : <NotificationTab
+                                    sharedData={sharedData}
+                                    dataTab={anomalies}
+                                />
+                                }
                                 {spinnerLoad === true ?
                                     <div className="relative grid grid-cols-1 grid-rows-1 mt-6">
 

@@ -37,18 +37,9 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
   const theLabel = shareOptions?.map((d: any) => { return d?.label });
   let markAreaData = [];
 
-  const baseColors = ['purple', 'pink', 'brown', 'blue', 'green', 'yellow', 'orange', 'grey', 'black'];
-  let colorPalette: { [key: string]: string } = {};
-
-
-
   if (numOfSeries > 0) {
     for (let i = 1; i < data[0].length - 1; i++) {
-      console.info("For loop", i);
       const seriesName = `${theLabel[i - 1] === undefined ? '' : theLabel[i - 1].toString().toUpperCase()}`;
-      if (!colorPalette.hasOwnProperty(seriesName)) {
-        colorPalette[seriesName] = baseColors[i % baseColors.length];
-      }
       const seriesData = [];
       for (let j = 0; j < data.length; j++) {
         const timestamp = data[j][0];
@@ -72,9 +63,10 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
         z: 1,
         itemStyle: {
           color: (params: any) => {
+            console.log('params:');
             const point = params.data;
             const inAnomalyArea = anomalies.some(anomaly => anomaly[0] === point[0] && anomaly[1] === point[1]);
-            return inAnomalyArea ? 'rgb(255, 0, 0)' : colorPalette[seriesName];
+            return inAnomalyArea ? 'rgb(255, 0, 0)' : params.color;
           },
         },
         markArea: {
