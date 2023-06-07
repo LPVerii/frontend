@@ -36,9 +36,19 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
   const numOfSeries = data[0]?.length - 2;
   const theLabel = shareOptions?.map((d: any) => { return d?.label });
   let markAreaData = [];
+
+  const baseColors = ['purple', 'pink', 'brown', 'blue', 'green', 'yellow', 'orange', 'grey', 'black'];
+  let colorPalette: { [key: string]: string } = {};
+
+
+
   if (numOfSeries > 0) {
     for (let i = 1; i < data[0].length - 1; i++) {
+      console.info("For loop", i);
       const seriesName = `${theLabel[i - 1] === undefined ? '' : theLabel[i - 1].toString().toUpperCase()}`;
+      if (!colorPalette.hasOwnProperty(seriesName)) {
+        colorPalette[seriesName] = baseColors[i % baseColors.length];
+      }
       const seriesData = [];
       for (let j = 0; j < data.length; j++) {
         const timestamp = data[j][0];
@@ -64,7 +74,7 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
           color: (params: any) => {
             const point = params.data;
             const inAnomalyArea = anomalies.some(anomaly => anomaly[0] === point[0] && anomaly[1] === point[1]);
-            return inAnomalyArea ? 'rgb(255, 0, 0)' : params.color;
+            return inAnomalyArea ? 'rgb(255, 0, 0)' : colorPalette[seriesName];
           },
         },
         markArea: {
@@ -76,37 +86,6 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
         },
       });
     }
-  } else {
-    console.info("Else statement");
-    const seriesData = data.map((d: any[]) => [d[0], d[1], d[2], 'Series 1']);
-    const anomalies = seriesData.filter((d: string[]) => d[2] === 'rgb(255, 0, 0)');
-    markAreaData = anomalies.length > 0 ? [
-      [
-        { xAxis: anomalies[0][0] },
-        { xAxis: anomalies[anomalies.length - 1][0] }
-      ]
-    ] : [];
-    series.push({
-      name: 'Series 1',
-      type: 'scatter',
-      data: seriesData,
-      symbolSize: 5,
-      z: 1,
-      itemStyle: {
-        color: (params: any) => {
-          const point = params.data;
-          const inAnomalyArea = anomalies.some((anomaly: any[]) => anomaly[0] === point[0] && anomaly[1] === point[1]);
-          return inAnomalyArea ? 'rgb(255, 0, 0)' : params.color;
-        },
-      },
-      markArea: {
-        z: 2,
-        itemStyle: {
-          color: 'rgba(255, 0, 0, 0.16)',
-        },
-        data: markAreaData,
-      },
-    });
   }
 
   const xMin = Math.min(...data.map((d: any) => d[0]));
