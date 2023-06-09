@@ -6,7 +6,7 @@ function handlerChange(e: any) {
     localStorage.setItem('isChecked', isCheeked);
 }
 
-export default function Checkbox({ label = '', customLinkText = '', ...props }) {
+export default function Checkbox({ label = '', customLinkText = '', sharedStateLog, ...props }: {label: string, customLinkText: string, sharedStateLog: any} ) {
     return (
         <div className="grid grid-cols-2">
             <div>
@@ -14,7 +14,7 @@ export default function Checkbox({ label = '', customLinkText = '', ...props }) 
                 <label htmlFor="chkbx" className="chkbxlab pr-1"></label>
                 <span className="text-sm">{label}</span>
             </div>
-            <div className="ml-auto text-sm pt-[5px]"><Link href="#" legacyBehavior>{customLinkText}</Link></div>
+            <div className="ml-auto text-sm pt-[5px]"><Link href="#" legacyBehavior><div onClick={() => {sharedStateLog(true);} }>{customLinkText}</div></Link></div>
         </div>
     );
 }
