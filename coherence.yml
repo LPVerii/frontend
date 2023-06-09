@@ -10,8 +10,3 @@ frontend: # NEXT
     memory: "8G"
     platform_settings:
       min_scale: 1
-  workspace:
-    PAGINATION
-  environment:
-    PAGINATION
-
