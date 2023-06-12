@@ -84,6 +84,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
     const [columns, setColumns] = useState([{ value: 'Empty', label: 'Empty' },]);
     const [tag, setTag] = useState('');
     const [tag2, setTag2] = useState('');
+    const [byDefault, setByDefault] = useState('');
 
 
     const sharedModalState = (state: any) => {
@@ -193,6 +194,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
         if (columns.length > 0 && defaultOptions[0] != null) {
             console.log('The Options: ', defaultOptions.toString(), table, startTimestamp, stopTimestamp, defaultOptions.map((item: any) => `"${item}"`).join(', ') as any, anomaliesTitle)
             setSelectedOptions(defaultOptions.map((item: any) => ({ value: item, label: item })) as any);
+            setByDefault(defaultOptions.map((item: any) => ({ value: item, label: item })) as any);
             scatterPlotSeverityChart = false;
             try {
                 wsclient.send('{"request":"data", "table":"' + table + '", "columns":[' + defaultOptions.map((item: any) => `"${item}"`).join(', ') + '], "start_timestamp" :' + '"' + startTimestamp + '"' + ', ' + '"end_timestamp":' + '"' + stopTimestamp + '"}');
@@ -209,6 +211,8 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
     let mapColumns = columns[0].value == "Waiting" ? columns : columns.map((column: any) => {
         return { value: column, label: column }
     }) as any;
+    
+    let theDefault = byDefault;
 
     const openClose = () => {
         setOpen(!open);
@@ -408,8 +412,10 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                             <div className="grid gap-1 grid-cols-1 xl:grid-cols-2  mt-10">
                                 <div className="mt-12 grid gap-1 grid-cols-2">
                                     <div className="mr-auto ml-16 font font pt-1 pr-10 text-[16px] ">{anomaliesTitle.charAt(0).toUpperCase() + anomaliesTitle.slice(1)}</div>
+                                    
                                     <Select
                                         isMulti
+                                        defaultValue={theDefault}
                                         isClearable={false}
                                         options={mapColumns}
                                         onChange={handleSelectChange}

@@ -63,7 +63,6 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
         z: 1,
         itemStyle: {
           color: (params: any) => {
-            console.log('params:');
             const point = params.data;
             const inAnomalyArea = anomalies.some(anomaly => anomaly[0] === point[0] && anomaly[1] === point[1]);
             return inAnomalyArea ? 'rgb(255, 0, 0)' : params.color;
@@ -114,6 +113,11 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
   };
 
   ref.setOption(option);
+
+  ref.on("finished", function (params: any) {
+  console.log('finished', params);
+  });
+
 
   let columnsHolder =
     shareOptions === undefined
