@@ -372,7 +372,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                 </div>
             </div>
         </Modal>
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col">
             <div className="flex flex-grow">
                 <div className="hidden md:flex items-start justify-between pl-8
                  bg-gradient-to-t  from-[#9F99F3] to-[#9BC7F3] text-blue-100 md:flex-shrink-0 md: w-[16rem]  md:justify-start h-[100vh] rounded-tr-3xl rounded-br-3xl">
@@ -381,7 +381,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                         <DemoMenu className="text-sm" />
                     </div>
                 </div>
-                <div className="overflow-y-auto bg-white w-full" style={{ top: "100px" }}>
+                <div className="overflow-y-auto scrollbar-w-10 bg-white w-full" style={{ top: "100px" }}>
                     <div className="">
                         <div className="w-full grid grid-cols-2 grid-rows-2 md:grid-cols-[32.9vw_30vw] lg:grid-cols-[47.9vw_30vw] xl:grid-cols-[50.9vw_30vw] 2xl:grid-cols-[56vw_30vw] fixed z-50 text-2xl h-[70px] pt-[20px] shadow-custom font bg-white">
                             <div className="Lato text-[23px] leading-7 tracking-wide pl-12">{title}

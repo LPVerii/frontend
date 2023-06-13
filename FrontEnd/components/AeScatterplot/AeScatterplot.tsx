@@ -134,6 +134,7 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
     },
     legend:{ 
       data: legendData,
+      selectedMode: false,
     },
     series: series,
   };
