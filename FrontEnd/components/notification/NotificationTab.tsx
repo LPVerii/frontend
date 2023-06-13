@@ -124,7 +124,7 @@ export default function NotificationTab({ sharedData, dataTab = Array(), filter 
         page[i] = i;
     }
 
-    const commonClass = "grid grid-cols-5 bg-slate-200 rounded-md text-[0.8vw] mb-[2px]"
+    const commonClass = "grid grid-cols-5 bg-slate-200 rounded-md text-[0.86vw] mb-[2px]"
 
     const sortedElements = buildPage({
         currPage: passNumber + 1,
@@ -159,7 +159,7 @@ export default function NotificationTab({ sharedData, dataTab = Array(), filter 
 
     return <>
         <div className="grid grid-cols-[40vw_1fr] mt-16 mb-8 ">
-            <div className="pl-1 Lato text-[1.5vw]">Critical AI Notifications
+            <div className="pl-1 Lato text-[1.10vw]">Critical AI Notifications
                 <select value={theSeverity} onChange={e => { setTheSeverity(e.target.value); }} className="w-[14vw] ml-6 bg-transparent rounded-3xl text-[#2FA4E7] pl-4 pr-6 border-[3px] border-[#2FA4E7]">
                     <option value="Sh">Severe</option>
                     <option value='Sm'>Medium Severity</option>

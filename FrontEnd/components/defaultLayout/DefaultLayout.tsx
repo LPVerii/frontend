@@ -194,6 +194,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
         if (columns.length > 0 && defaultOptions[0] != null) {
             console.log('The Options: ', defaultOptions.toString(), table, startTimestamp, stopTimestamp, defaultOptions.map((item: any) => `"${item}"`).join(', ') as any, anomaliesTitle)
             setSelectedOptions(defaultOptions.map((item: any) => ({ value: item, label: item })) as any);
+            console.log("selected options", selectedOptions);
             setByDefault(defaultOptions.map((item: any) => ({ value: item, label: item })) as any);
             scatterPlotSeverityChart = false;
             try {
@@ -208,11 +209,11 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
 
     }, [columns, defaultOptions, table, startTimestamp, stopTimestamp, anomaliesTitle]);
 
-    let mapColumns = columns[0].value == "Waiting" ? columns : columns.map((column: any) => {
-        return { value: column, label: column }
+    let mapColumns = columns.map((column: any) => {
+        return { value: column[0], label: column[0] }
     }) as any;
-    
-    let theDefault = byDefault;
+
+    console.log("Map columns", mapColumns);
 
     const openClose = () => {
         setOpen(!open);
@@ -271,17 +272,8 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
 
     const handleSelectChange = (Options: any, actions: any) => {
         scatterPlotSeverityChart = false;
-        if (actions.action === 'remove-value') {
-            const removedValue = actions.removedValue;
-            const lastSelectedOption = selectedOptions[selectedOptions.length - 1];
-
-            if (removedValue === lastSelectedOption) {
-                setSelectedOptions(Options);
-            }
-        } else {
-            setSelectedOptions(Options);
-        }
-
+        setSelectedOptions(Options);
+        console.log("selected options", selectedOptions);
         const selectedOptionValues = Options.map((option: any) => `"${option.value}"`).join(', ') as any;
 
         if (!selectedOptionValues) { setPoints([]); return; }
@@ -411,18 +403,17 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                         <section className="grid gap-1 grid-cols-1 xl:grid-cols-1 w-[calc(100%_-_50px)] transition-all  duration-[5000ms]">
                             <div className="grid gap-1 grid-cols-1 xl:grid-cols-2  mt-10">
                                 <div className="mt-12 grid gap-1 grid-cols-2">
-                                    <div className="mr-auto ml-16 font font pt-1 pr-10 text-[16px] ">{anomaliesTitle.charAt(0).toUpperCase() + anomaliesTitle.slice(1)}</div>
+                                    <div className="mr-auto ml-16 font font pt-1 pr-10 text-[clamp(10px,0.89vw,16px)] ">{anomaliesTitle.charAt(0).toUpperCase() + anomaliesTitle.slice(1)}</div>
                                     
-                                    <Select
+                                    <Select                                  
                                         isMulti
-                                        defaultValue={theDefault}
                                         isClearable={false}
                                         options={mapColumns}
-                                        onChange={handleSelectChange}
-                                        value={selectedOptions}
                                         isDisabled={selectDisabled}
-                                        className="w-auto ml-auto"
                                         styles={customStyles}
+                                        onChange={handleSelectChange}
+                                        className="w-auto ml-auto text-[clamp(9px,0.77vw,19px)]"
+                                        value={selectedOptions}
                                     />
                                 </div>
                             </div>
