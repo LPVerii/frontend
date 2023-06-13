@@ -132,7 +132,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
     }
 
     function fillTheRow() {
-        console.log(counter);
+
         if (wsclient.readyState === Open && !!user && counter < 2)
             setTimeout(() => {
                 wsclient.send('{"request":"anomalies"}');
@@ -213,8 +213,6 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
         return { value: column[0], label: column[0] }
     }) as any;
 
-    console.log("Map columns", mapColumns);
-
     const openClose = () => {
         setOpen(!open);
     }
@@ -271,11 +269,10 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
     }
 
     const handleSelectChange = (Options: any, actions: any) => {
+
         scatterPlotSeverityChart = false;
         setSelectedOptions(Options);
-        console.log("selected options", selectedOptions);
         const selectedOptionValues = Options.map((option: any) => `"${option.value}"`).join(', ') as any;
-
         if (!selectedOptionValues) { setPoints([]); return; }
         wsclient.send('{"request":"data", "table":"' + table + '", "columns":[' + selectedOptionValues + '], "start_timestamp" :' + '"' + startTimestamp + '"' + ', ' + '"end_timestamp":' + '"' + stopTimestamp + '"}');
 
@@ -404,7 +401,6 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                             <div className="grid gap-1 grid-cols-1 xl:grid-cols-2  mt-10">
                                 <div className="mt-12 grid gap-1 grid-cols-2">
                                     <div className="mr-auto ml-16 font font pt-1 pr-10 text-[clamp(10px,0.89vw,16px)] ">{anomaliesTitle.charAt(0).toUpperCase() + anomaliesTitle.slice(1)}</div>
-                                    
                                     <Select                                  
                                         isMulti
                                         isClearable={false}

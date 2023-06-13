@@ -35,11 +35,30 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
   let series = [];
   const numOfSeries = data[0]?.length - 2;
   const theLabel = shareOptions?.map((d: any) => { return d?.label });
+  const colorMap: { [key: string]: string } = {
+    'cell_id': '#c23531',
+    'id': '#2f4554',
+    'run_id': '#c23531',
+    'cycle_index': '#d48265',
+    'current': '#ca8622',
+    'voltage': '#749f83',
+    'charge_capacity': '#91c7ae ',
+    'discharge_capacity': '#bda29a',
+    'charge_energy': '#6e7074',
+    'discharge_energy': '#546570',
+    'internal_resistance': '#c4ccd3',
+    'temperature': '#61a0a8',
+    'unadjusted_temperature': '#2f4554',
+    'failure_mode': '#61a0a8',
+  };
+  
+  
   let markAreaData = [];
+  let legendData = [];
 
   if (numOfSeries > 0) {
     for (let i = 1; i < data[0].length - 1; i++) {
-      const seriesName = `${theLabel[i - 1] === undefined ? '' : theLabel[i - 1].toString().toUpperCase()}`;
+      const seriesName = `${theLabel[i - 1] === undefined ? '' : theLabel[i - 1]}`;
       const seriesData = [];
       for (let j = 0; j < data.length; j++) {
         const timestamp = data[j][0];
@@ -65,9 +84,10 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
           color: (params: any) => {
             const point = params.data;
             const inAnomalyArea = anomalies.some(anomaly => anomaly[0] === point[0] && anomaly[1] === point[1]);
-            return inAnomalyArea ? 'rgb(255, 0, 0)' : params.color;
+            return inAnomalyArea ? 'rgb(255, 0, 0)' : colorMap[seriesName];
           },
         },
+        
         markArea: {
           z: 2,
           itemStyle: {
@@ -76,8 +96,16 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
           data: markAreaData,
         },
       });
+      legendData.push({
+        name: seriesName,
+        icon: 'circle',
+        itemStyle: {
+          color: colorMap[seriesName.toLowerCase()],
+        },
+      });
     }
   }
+  
 
   const xMin = Math.min(...data.map((d: any) => d[0]));
   const xMax = Math.max(...data.map((d: any) => d[0]));
@@ -104,10 +132,8 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
       min: yMin,
       max: yMax,
     },
-    legend: data.length > 0 ? {
-      orient: 'horizontal',
-    } : {
-      show: false,
+    legend:{ 
+      data: legendData,
     },
     series: series,
   };
