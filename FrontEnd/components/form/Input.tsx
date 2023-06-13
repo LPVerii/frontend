@@ -7,7 +7,7 @@ export default function Input({inputRef, type = 'text', icon_name ='', second_ic
 
     return (
         <label className=" border-b-2 border-[#2FA4E7]">
-            <input id={icon_name} type={type} className={`sm:w-[90%] lg:w-[92%] w-9 Roboto pl-[35px] sm:py-4 lg:py-2 outline-none sm:text-[10px] lg:text-xl`} ref={inputRef} {...props} />
+            <input id={icon_name} type={type} className={`py-2 sm:w-[90%] lg:w-[92%] w-[88%] Roboto pl-[35px] sm:py-4 lg:py-2 outline-none sm:text-[10px] lg:text-xl`} ref={inputRef} {...props} />
             <div className={"w-[23px] h-[15px] inline-block" + " " +(second_icon)} onClick={() => {setToggleMode(!toggleMode); sharedState(toggleMode);} }></div>
         </label>
     )
