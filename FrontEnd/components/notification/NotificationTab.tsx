@@ -168,7 +168,7 @@ export default function NotificationTab({ sharedData, dataTab = Array(), filter 
             </div>
             <input
                 id="icon_mag"
-                className="ml-auto h-[34px] w-[300px] rounded-3xl pl-5 outline-none bg-[#F0F3F9]"
+                className="ml-auto h-[34px] w-[200px] xl:w-[300px] rounded-3xl pl-5 outline-none bg-[#F0F3F9]"
                 type="search"
                 name=""
                 value={searchTerm}

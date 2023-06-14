@@ -417,7 +417,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
 
                                 <div className="p-6 mt-2 bg-[#F0F3F9] h-[calc(100%_-_10px)] min-w-[400px] w-[calc(100%_-_20px)] ml-10 rounded-2xl shadow-[3px_3px_6px_#999999] transition-all  duration-[5000ms]">
                                     <AeScatterplotComponent id={"first"} sharedPoints={sharedPoints} data={points} shareOptions={selectedOptions} clickable={true} shareModalState={sharedModalState} />
-                                    <div className="grid gap-1 grid-cols-1 mt-10">
+                                    <div className={"grid gap-1 grid-cols-1 mt-10 " + "hidden"} >
                                         <div className={"ml-auto mr-auto " + (gridCol ? null : "hidden")}>
                                             <div className="grid grid-row-2 grid-cols-4  text-[12px] lg:text-[14px]">
 
@@ -460,7 +460,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                                     </div>
                                 </div>
 
-                                <div className={"p-6 mt-2 " + (gridCol ? null : " hidden") + " bg-[#F0F3F9]  min-w-[400px] w-[calc(100%_-_20px)] h-[calc(100%_-_10px)] mt-10 ml-10 rounded-2xl shadow-[3px_3px_6px_#999999] transition-all  duration-[5000ms]"}>
+                                <div className={"p-6 mt-2 " + (" hidden") + " bg-[#F0F3F9]  min-w-[400px] w-[calc(100%_-_20px)] h-[calc(100%_-_10px)] mt-10 ml-10 rounded-2xl shadow-[3px_3px_6px_#999999] transition-all  duration-[5000ms]"}>
                                     <AeScatterplotComponent id={"second"} sharedPoints={[]} data={points2} shareOptions={[]} clickable={false} />
                                     <div className="grid gap-1 grid-cols-1 mt-10">
                                         <div className={"ml-auto mr-auto " + (gridCol ? null : "hidden")}>

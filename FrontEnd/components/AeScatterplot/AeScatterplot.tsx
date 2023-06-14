@@ -36,20 +36,20 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
   const numOfSeries = data[0]?.length - 2;
   const theLabel = shareOptions?.map((d: any) => { return d?.label });
   const colorMap: { [key: string]: string } = {
-    'cell_id': '#c23531',
-    'id': '#2f4554',
-    'run_id': '#c23531',
-    'cycle_index': '#d48265',
-    'current': '#ca8622',
-    'voltage': '#749f83',
-    'charge_capacity': '#91c7ae ',
-    'discharge_capacity': '#bda29a',
-    'charge_energy': '#6e7074',
-    'discharge_energy': '#546570',
-    'internal_resistance': '#c4ccd3',
-    'temperature': '#61a0a8',
-    'unadjusted_temperature': '#2f4554',
-    'failure_mode': '#61a0a8',
+    'cell_id': '#834DC5',
+    'id': '#6E80FA',
+    'run_id': '#AEE2FF',
+    'cycle_index': '#A6859F',
+    'current': '#4A3052',
+    'voltage': '#873E85',
+    'charge_capacity': '#EE90CB',
+    'discharge_capacity': '#F2AE99',
+    'charge_energy': '#A6555F',
+    'discharge_energy': '#751856',
+    'internal_resistance': '#CC425E',
+    'temperature': '#FFB879',
+    'unadjusted_temperature': '#ABDD64',
+    'failure_mode': '#5BA675',
   };
   
   
