@@ -38,6 +38,7 @@ const Home: NextPage = () => {
     transition: 'opacity 1s ease-in-out',
     opacity: isLoading ? 0 : 1,
     overflow: 'hidden',
+    height: '100vh',
   };
 
   const logoStyle = {
