@@ -398,7 +398,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                                 null}
                         </div>
                         <section className="grid gap-1 grid-cols-1 xl:grid-cols-1 w-[calc(100%_-_50px)] transition-all  duration-[5000ms]">
-                            <div className="grid gap-1 grid-cols-1 xl:grid-cols-2  mt-10">
+                            <div className="grid gap-1 grid-cols-1 xl:grid-cols-1 mt-10">
                                 <div className="mt-12 grid gap-1 grid-cols-2">
                                     <div className="mr-auto ml-16 font font pt-1 pr-10 text-[clamp(10px,0.89vw,16px)] ">{anomaliesTitle.charAt(0).toUpperCase() + anomaliesTitle.slice(1)}</div>
                                     <Select                                  
@@ -413,7 +413,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                                     />
                                 </div>
                             </div>
-                            <div className={"grid gap-1 grid-rows-1 " + "xl:grid-cols-2 sm:grid-cols-1" + " transition-all  duration-[5000ms]"}>
+                            <div className={"grid gap-1 grid-rows-1 " + "sm:grid-cols-1" + " transition-all  duration-[5000ms]"}>
 
                                 <div className="p-6 mt-2 bg-[#F0F3F9] h-[calc(100%_-_10px)] min-w-[400px] w-[calc(100%_-_20px)] ml-10 rounded-2xl shadow-[3px_3px_6px_#999999] transition-all  duration-[5000ms]">
                                     <AeScatterplotComponent id={"first"} sharedPoints={sharedPoints} data={points} shareOptions={selectedOptions} clickable={true} shareModalState={sharedModalState} />

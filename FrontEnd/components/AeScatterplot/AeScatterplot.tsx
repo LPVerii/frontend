@@ -36,20 +36,20 @@ function createEScatterPlot(ref: any, { sharedPoints, data, shareOptions, clicka
   const numOfSeries = data[0]?.length - 2;
   const theLabel = shareOptions?.map((d: any) => { return d?.label });
   const colorMap: { [key: string]: string } = {
-    'cell_id': '#834DC5',
-    'id': '#6E80FA',
-    'run_id': '#AEE2FF',
+    'cell_id': '#5BA675',
+    'id': '#873E85',
+    'run_id': '#834DC5',
     'cycle_index': '#A6859F',
-    'current': '#4A3052',
-    'voltage': '#873E85',
+    'current': '#FFB879',
+    'voltage': '#6E80FA',
     'charge_capacity': '#EE90CB',
     'discharge_capacity': '#F2AE99',
     'charge_energy': '#A6555F',
     'discharge_energy': '#751856',
     'internal_resistance': '#CC425E',
-    'temperature': '#FFB879',
-    'unadjusted_temperature': '#ABDD64',
-    'failure_mode': '#5BA675',
+    'temperature': '#ABDD64',
+    'unadjusted_temperature': '#AEE2FF',
+    'failure_mode': '#4A3052',
   };
   
   
