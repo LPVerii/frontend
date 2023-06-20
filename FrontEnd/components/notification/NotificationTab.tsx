@@ -158,9 +158,9 @@ export default function NotificationTab({ sharedData, dataTab = Array(), filter 
     };
 
     return <>
-        <div className="grid grid-cols-[40vw_1fr] mt-1 mb-[99px] h-[30px]">
-            <div className="pl-1 pt-0 mt-0 text-[16px] Lato sm:text-[1.10vw] h-[30px]">Critical AI Notifications
-                <select value={theSeverity} onChange={e => { setTheSeverity(e.target.value); }} className="w-[120px] sm:w-[14vw] sm:ml-6 bg-transparent rounded-3xl text-[#2FA4E7] pl-4 pr-6 border-[3px] border-[#2FA4E7] h-[30px]">
+        <div className="grid grid-cols-[40vw_1fr] mt-1 mb-[99px] h-[30px] sm:h-[40px]">
+            <div className="pl-1 pt-0 mt-0 text-[16px] Lato sm:text-[1.10vw] h-[30px] sm:h-[40px]">Critical AI Notifications
+                <select value={theSeverity} onChange={e => { setTheSeverity(e.target.value); }} className="w-[120px] sm:w-[14vw] sm:ml-6 bg-transparent rounded-3xl text-[#2FA4E7] pl-4 pr-6 border-[3px] border-[#2FA4E7] h-[30px] sm:h-[40px]">
                     <option value="Sh">Severe</option>
                     <option value='Sm'>Medium Severity</option>
                     <option value='Sl'>Not Critical</option>
@@ -168,7 +168,7 @@ export default function NotificationTab({ sharedData, dataTab = Array(), filter 
             </div>
             <input
                 id="icon_mag"
-                className="ml-auto w-[150px] sm:w-[200px] xl:w-[300px] rounded-3xl pl-5 outline-none bg-[#F0F3F9] h-[30px]"
+                className="ml-auto w-[150px] sm:w-[200px] xl:w-[300px] rounded-3xl pl-5 outline-none bg-[#F0F3F9] h-[30px] sm:h-[40px]"
                 type="search"
                 name=""
                 value={searchTerm}
