@@ -397,7 +397,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                                 </div> :
                                 null}
                         </div>
-                        <section className="grid gap-1 grid-cols-1 xl:grid-cols-1 w-[calc(100%_-_50px)] transition-all  duration-[5000ms]">
+                        <section className="grid gap-1 grid-cols-1 xl:grid-cols-1 w-[calc(100%_-_50px)] transition-all  h-[100vh]">
                             <div className="grid gap-1 grid-cols-1 xl:grid-cols-1 mt-10">
                                 <div className="mt-12 grid gap-1 grid-cols-2">
                                     <div className="mr-auto ml-16 font font pt-1 pr-10 text-[clamp(10px,0.89vw,16px)] ">{anomaliesTitle.charAt(0).toUpperCase() + anomaliesTitle.slice(1)}</div>
@@ -538,7 +538,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                             <div className="grid gap-1 grid-cols-3 w-[calc(100%_-_20px)]">
                                 <div></div>
                             </div>
-                            <div className="w-[98%] xl:w-[100%] h-[80px] m-10  pr-4">
+                            <div className="w-[98%] xl:w-[100%] m-10  pr-4">
                                 {spinnerLoad === true ? null : <NotificationTab
                                     sharedData={sharedData}
                                     dataTab={anomalies}
