@@ -65,14 +65,21 @@ function rowRenderer({ index, style, elements, sharedData, commonClass }: { inde
         }
     }
 
+
+    const firstHalf = n[3].substring(0, Math.floor(n[3].length / 2));
+    const secondHalf = n[3].substring(Math.floor(n[3].length / 2));
+
+    const firstHalf2 = n[1].toString().substring(0, Math.floor(n[1].toString().length / 2));
+    const secondHalf2 = n[1].toString().substring(Math.floor(n[1].toString().length / 2));
+
     return (
         <div key={i} style={style} className={commonClass + "  overflow-y-hidden"}>
-            <div className={`my-6 mr-auto ml-auto Lato ${icon}`}>{n[3]}</div>
-            <div className=" my-6 mr-auto ml-auto Lato">{n[1]}</div>
-            <div className=" my-6 mr-auto ml-auto Lato">{n[2]}</div>
-            <div className=" my-6 mr-auto ml-auto Lato">{n[0]}</div>
-            <div className=" my-4 mr-auto ml-auto Lato">
-                <button className=" bg-slate-200 border-black border-[1px] rounded-3xl py-2 px-4" onClick={() => { sharedData(n[0], n[4], n[5], n[3]) }}>Inspect</button>
+            <div className={`my-6 mr-auto ml-2 w-[40px] sm:w-auto sm:ml-auto Lato  ${icon}`}>{firstHalf}<div className="sm:hidden"></div> {secondHalf}</div>
+            <div className=" my-6 ml-2 w-[40px] sm:w-auto sm:mr-auto sm:ml-auto Lato">{firstHalf2}<div className="sm:hidden"></div> {secondHalf2}</div>
+            <div className=" my-6 ml-4 sm:mr-auto sm:ml-auto Lato">{n[2]}</div>
+            <div className=" my-6 ml-2 sm:mr-auto sm:ml-auto Lato">{n[0]}</div>
+            <div className=" my-4 ml-2 sm:mr-auto sm:ml-auto Lato">
+                <button className=" bg-slate-200 border-black border-[1px] rounded-3xl py-1 my-1 px-2 sm:py-2 sm:px-4" onClick={() => { sharedData(n[0], n[4], n[5], n[3]) }}>Inspect</button>
             </div>
         </div>
     );
@@ -124,7 +131,7 @@ export default function NotificationTab({ sharedData, dataTab = Array(), filter 
         page[i] = i;
     }
 
-    const commonClass = "grid grid-cols-5 bg-slate-200 rounded-md text-[0.86vw] mb-[2px]"
+    const commonClass = "grid grid-cols-5 bg-slate-200 rounded-md text-[8px] sm:text-[0.86vw] mb-[2px]"
 
     const sortedElements = buildPage({
         currPage: passNumber + 1,
@@ -148,12 +155,12 @@ export default function NotificationTab({ sharedData, dataTab = Array(), filter 
     const renderArrowIcon = (columnIndex: any) => {
         return sortColumn === columnIndex ? (
             sortDirection === 1 ? (
-                <div className="my-[26px] w-[0.7rem] h-[0.4rem] bg-contain bg-[url('../resource/IMG/Arrow_down.png')] bg-no-repeat"></div>
+                <div className="my-[26px] w-[0.7rem] h-[0.4rem] bg-contain bg-[url('../resource/IMG/Arrow_down.png')] bg-no-repeat hidden sm:block"></div>
             ) : (
-                <div className="my-[26px] w-[0.7rem] h-[0.4rem] bg-contain bg-[url('../resource/IMG/Arrow.png')] bg-no-repeat"></div>
+                <div className="my-[26px] w-[0.7rem] h-[0.4rem] bg-contain bg-[url('../resource/IMG/Arrow.png')] bg-no-repeat hidden sm:block"></div>
             )
         ) : (
-            <div className="my-[26px] w-[0.7rem] h-[0.4rem] bg-contain bg-[url('../resource/IMG/Arrow.png')] bg-no-repeat"></div>
+            <div className="my-[26px] w-[0.7rem] h-[0.4rem] bg-contain bg-[url('../resource/IMG/Arrow.png')] bg-no-repeat hidden sm:block"></div>
         );
     };
 
@@ -175,21 +182,21 @@ export default function NotificationTab({ sharedData, dataTab = Array(), filter 
                 onChange={handleSearchTermChange}
                 placeholder="search" />
         </div>
-        <div className="grid grid-cols-5 gap-1 bg-slate-200 rounded-md text-[1.0vw] mb-[1px]">
+        <div className="grid grid-cols-5 gap-1 bg-slate-200 rounded-md text-[10px] sm:text-[1.0vw] mb-[1px]">
             <div className="Lato-bold grid grid-cols-2 cursor-pointer ml-auto" onClick={() => { handleSort(0); console.log(sortColumn) }}>
-                <div className="ml-auto mr-auto Lato-bold my-4">Anomaly id &nbsp;&nbsp;&nbsp;</div>
+                <div className="ml-3 sm:ml-auto mr-auto Lato-bold my-4">Anomaly id &nbsp;&nbsp;&nbsp;</div>
                 {renderArrowIcon(0)}
             </div>
             <div className="grid gap-1 grid-cols-2 cursor-pointer" onClick={() => { handleSort(1); console.log(sortColumn) }}>
-                <div className="ml-auto mr-auto Lato-bold my-4">Severity</div>
+                <div className="ml-2 sm:ml-auto Lato-bold my-4 ">Severity</div>
                 {renderArrowIcon(1)}
             </div>
             <div className="grid gap-1 grid-cols-2 cursor-pointer" onClick={() => { handleSort(2), console.log(sortColumn) }}>
-                <div className="ml-auto mr-auto Lato-bold my-4">Class</div>
+                <div className="ml-2 sm:ml-auto Lato-bold my-4">Class</div>
                 {renderArrowIcon(2)}
             </div>
             <div className="grid gap-1 grid-cols-2 cursor-pointer" onClick={() => { handleSort(3), console.log(sortColumn) }}>
-                <div className="Lato-bold mr-auto ml-auto my-4">Cell id</div>
+                <div className="Lato-bold mr-auto ml-2 sm:ml-auto my-4">Cell id</div>
                 {renderArrowIcon(3)}
             </div>
             <div className="Lato-bold mr-auto ml-auto my-4">Action</div>
