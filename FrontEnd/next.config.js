@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: false,
   publicRuntimeConfig: {
     API_KEY: process.env.API_KEY,
     AUTH_DOMAIN: process.env.AUTH_DOMAIN,
