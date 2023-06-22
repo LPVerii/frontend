@@ -379,7 +379,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
         <div className="flex flex-col h-[100vh]">
             <div className="flex flex-grow">
                 <div className="hidden md:flex items-start justify-between pl-8
-                 bg-gradient-to-t  from-[#9F99F3] to-[#9BC7F3] text-blue-100 md:flex-shrink-0 md: w-[16rem]  md:justify-start h-[100vh] rounded-tr-3xl rounded-br-3xl">
+                 bg-gradient-to-t  from-[#9F99F3] to-[#9BC7F3] text-blue-100 md:flex-shrink-0 md: w-[16rem]  md:justify-start h-[100vh] rounded-tr-3xl rounded-br-3xl h-auto">
                     <div className="relative">
                         <div className="w-[189px] h-[53px] mb-8 mt-[80px] bg-[url('../resource/IMG/logoType.png')] bg-contain bg-no-repeat"></div>
                         <DemoMenu className="text-sm" />
@@ -401,7 +401,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                                 </div> :
                                 null}
                         </div>
-                        <section className="grid gap-1 grid-cols-1 xl:grid-cols-1 w-[calc(100%_-_50px)] transition-all  h-[100vh]">
+                        <section className="grid gap-1 grid-cols-1 xl:grid-cols-1 w-[calc(100%_-_50px)] transition-all  h-[89vh] sm:[h-93vh]">
                             <div className="grid gap-1 grid-cols-1 xl:grid-cols-1 mt-10">
                                 <div className="mt-0 grid gap-1 grid-cols-2">
                                     <div className="mr-auto ml-16 font font pt-1 pr-10 text-[clamp(10px,0.89vw,16px)] ">{anomaliesTitle.charAt(0).toUpperCase() + anomaliesTitle.slice(1)}</div>
