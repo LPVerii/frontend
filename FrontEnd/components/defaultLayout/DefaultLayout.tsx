@@ -331,8 +331,8 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
 
     const modalContentText = 'Are you want to save the tag?';
 
-    const firstHalf = user?.email.split('@').shift() || '';
-    const secondHalf = user?.email.substring(user?.email.indexOf('@')) || '';
+    const firstPart = user?.email.split('@').shift() || '';
+    const secondPart = user?.email.substring(user?.email.indexOf('@')) || '';
 
 
     return <>
@@ -391,7 +391,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                             <div className="Lato text-[23px] leading-7 tracking-wide pl-12">{title}
                             </div>
                             <div id='PressToShowLogout' className="Lato text-[14px] leading-3 ml-auto mr-10 cursor-pointer font-light sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[20px] 2xl:text-[22px] " onClick={() => openClose()}>
-                            {firstHalf}<div className="sm:hidden"></div> {secondHalf}
+                            {firstPart}<div className="sm:hidden"></div> {secondPart}
                             </div>
                             <div>
                             </div>
