@@ -25,7 +25,8 @@ export default function AeScatterplotComponent({ id, sharedPoints, data, shareOp
     <div
       id={`chart-${id}`}
       ref={chartRef}
-      style={{ width: '100%', height: '400px', maxWidth: 'calc(100% - 40px)' }}
+      className="h-[75vw] sm:h-[400px]"
+      style={{ width: '100%', maxWidth: 'calc(100% - 40px)' }}
     />
   );
 }
