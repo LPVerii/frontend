@@ -379,7 +379,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
         <div className="flex flex-col h-[100vh]">
             <div className="flex flex-grow">
                 <div className="hidden md:flex items-start justify-between pl-8
-                 bg-gradient-to-t  from-[#9F99F3] to-[#9BC7F3] text-blue-100 md:flex-shrink-0 md: w-[16rem]  md:justify-start h-[100vh] rounded-tr-3xl rounded-br-3xl h-auto">
+                 bg-gradient-to-t  from-[#9F99F3] to-[#9BC7F3] text-blue-100 md:flex-shrink-0 md: w-[16rem]  md:justify-start rounded-tr-3xl rounded-br-3xl h-auto">
                     <div className="relative">
                         <div className="w-[189px] h-[53px] mb-8 mt-[80px] bg-[url('../resource/IMG/logoType.png')] bg-contain bg-no-repeat"></div>
                         <DemoMenu className="text-sm" />
