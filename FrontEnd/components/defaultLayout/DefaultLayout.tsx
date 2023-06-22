@@ -331,6 +331,10 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
 
     const modalContentText = 'Are you want to save the tag?';
 
+    const firstHalf = user?.email.split('@').shift() || '';
+    const secondHalf = user?.email.substring(user?.email.indexOf('@')) || '';
+
+
     return <>
         <ToastContainer />
         <Modal
@@ -383,11 +387,11 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                 </div>
                 <div className="overflow-y-auto scrollbar-w-10 bg-white w-full" style={{ top: "100px" }}>
                     <div className="">
-                        <div className="w-full grid grid-cols-2 grid-rows-2 md:grid-cols-[32.9vw_30vw] lg:grid-cols-[47.9vw_30vw] xl:grid-cols-[50.9vw_30vw] 2xl:grid-cols-[56vw_30vw] fixed z-50 text-2xl h-[70px] pt-[20px] shadow-custom font bg-white">
+                        <div className="w-auto grid grid-cols-2 grid-rows-2 sm:grid-cols-[1fr_1fr] text-2xl h-[70px] pt-[20px] shadow-custom font bg-white">
                             <div className="Lato text-[23px] leading-7 tracking-wide pl-12">{title}
                             </div>
-                            <div id='PressToShowLogout' className="Lato text-[14px] ml-auto mr-14 cursor-pointer font-light sm:text-[16px] md:text-[18px] md:mr-0 lg:text-[20px] lg:mr-14 xl:text-[20px]  xl:mr-14 2xl:text-[22px] 2xl:mr-14 " onClick={() => openClose()}>
-                                {user?.email}
+                            <div id='PressToShowLogout' className="Lato text-[14px] leading-3 ml-auto mr-10 cursor-pointer font-light sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[20px] 2xl:text-[22px] " onClick={() => openClose()}>
+                            {firstHalf}<div className="sm:hidden"></div> {secondHalf}
                             </div>
                             <div>
                             </div>
@@ -399,7 +403,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                         </div>
                         <section className="grid gap-1 grid-cols-1 xl:grid-cols-1 w-[calc(100%_-_50px)] transition-all  h-[100vh]">
                             <div className="grid gap-1 grid-cols-1 xl:grid-cols-1 mt-10">
-                                <div className="mt-12 grid gap-1 grid-cols-2">
+                                <div className="mt-0 grid gap-1 grid-cols-2">
                                     <div className="mr-auto ml-16 font font pt-1 pr-10 text-[clamp(10px,0.89vw,16px)] ">{anomaliesTitle.charAt(0).toUpperCase() + anomaliesTitle.slice(1)}</div>
                                     <Select                                  
                                         isMulti
