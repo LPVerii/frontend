@@ -74,8 +74,8 @@ function rowRenderer({ index, style, elements, sharedData, commonClass }: { inde
 
     return (
         <div key={i} style={style} className={commonClass + "  overflow-y-hidden"}>
-            <div className={`my-6 mr-auto ml-2 w-[40px] sm:w-auto sm:ml-auto Lato  ${icon}`}>{firstHalf}<div className="sm:hidden"></div> {secondHalf}</div>
-            <div className=" my-6 ml-2 w-[40px] sm:w-auto sm:mr-auto sm:ml-auto Lato">{firstHalf2}<div className="sm:hidden"></div> {secondHalf2}</div>
+            <div className={`my-6 mr-auto ml-2 w-[40px] sm:w-auto sm:ml-auto Lato  ${icon}`}>{firstHalf}<div className="sm:hidden"></div>{secondHalf}</div>
+            <div className=" my-6 ml-2 w-[40px] sm:w-auto sm:mr-auto sm:ml-auto Lato">{firstHalf2}<div className="sm:hidden"></div>{secondHalf2}</div>
             <div className=" my-6 ml-4 sm:mr-auto sm:ml-auto Lato">{n[2]}</div>
             <div className=" my-6 ml-2 sm:mr-auto sm:ml-auto Lato">{n[0]}</div>
             <div className=" my-4 ml-2 sm:mr-auto sm:ml-auto Lato">
