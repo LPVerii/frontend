@@ -352,9 +352,6 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
     const firstPart = user?.email.split('@').shift() || '';
     const secondPart = user?.email.substring(user?.email.indexOf('@')) || '';
 
-    // user?.getIdToken().then((token: any) => {
-    //     wsclient.send('{"id_token":"' + token + '"}');
-    // });
 
     return <>
         <ToastContainer />
