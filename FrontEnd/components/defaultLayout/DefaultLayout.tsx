@@ -85,6 +85,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
     const [tag, setTag] = useState('');
     const [tag2, setTag2] = useState('');
     const [byDefault, setByDefault] = useState('');
+    const [token, setToken] = useState(null);
 
 
     const sharedModalState = (state: any) => {
@@ -208,6 +209,23 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
 
 
     }, [columns, defaultOptions, table, startTimestamp, stopTimestamp, anomaliesTitle]);
+
+    useEffect(() => {
+        // Check if the user is logged in.
+        if (user) {
+          // If yes, fetch the token.
+          user.getIdToken().then((retrievedToken: any) => {
+            // Save the token in the state.
+            setToken(retrievedToken);
+    
+            // Send the token over the WebSocket connection.
+            wsclient.send('{"id_token":"' + retrievedToken + '"}');
+          });
+        } else {
+          // If the user is not logged in, set the token to `null`.
+          setToken(null);
+        }
+      }, [user, wsclient]); 
 
     let mapColumns = columns.map((column: any) => {
         return { value: column[0], label: column[0] }
@@ -334,6 +352,9 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
     const firstPart = user?.email.split('@').shift() || '';
     const secondPart = user?.email.substring(user?.email.indexOf('@')) || '';
 
+    // user?.getIdToken().then((token: any) => {
+    //     wsclient.send('{"id_token":"' + token + '"}');
+    // });
 
     return <>
         <ToastContainer />
@@ -391,7 +412,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                             <div className="Lato text-[23px] leading-7 tracking-wide pl-12">{title}
                             </div>
                             <div id='PressToShowLogout' className="Lato text-[14px] leading-3 ml-auto mr-10 cursor-pointer font-light sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[20px] 2xl:text-[22px] " onClick={() => openClose()}>
-                            {firstPart}<div className="sm:hidden"></div>{secondPart}
+                                {firstPart}<div className="sm:hidden"></div>{secondPart}
                             </div>
                             <div>
                             </div>
@@ -405,7 +426,7 @@ export default function DefaultLayout({ title, user }: { title: string, user: an
                             <div className="grid gap-1 grid-cols-1 xl:grid-cols-1 mt-10">
                                 <div className="mt-0 grid gap-1 grid-cols-2">
                                     <div className="mr-auto ml-16 font font pt-1 pr-10 text-[clamp(10px,0.89vw,16px)] ">{anomaliesTitle.charAt(0).toUpperCase() + anomaliesTitle.slice(1)}</div>
-                                    <Select                                  
+                                    <Select
                                         isMulti
                                         isClearable={false}
                                         options={mapColumns}
